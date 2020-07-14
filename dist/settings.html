@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REWQ - swipe shortcut on your keyboard</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        body > div { margin-bottom: 24px; }
+        td { justify-content: center; align-items: center; }
+        td > input { width: 100%; margin: 2px; }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>A novel URL Shortcut Tool</h2>
+        <p>Welcome!! This is REWQ - a very simple idea. It is a <strong>shortcut url</strong> for any longer url.</p>
+        <p>R_E_W_Q are top 4 letters on your keyboard and you can kind of swipe to enter them.</p>
+        <p>Whenever, you swipe on your keyboard these 4 letters <strong>'r-e-w-q-TAB'</strong> - we will redirect you to the link from below.</p>
+    </div>
+    <div>
+        <h2>Destination Links</h2>
+        <table>
+            <tr>
+                <th width="80">Enable</th>
+                <th width="320">Destination URL</th>
+                <th>Note</th>
+                <th>Reset</th>
+            </tr>
+            <tr>
+                <td> <input type="checkbox" name="link-enabled" num="0" /> </td>
+                <td> <input type="text" name="link-url" num="0" /> </td>
+                <td> <input type="text" name="link-desc" num="0"/> </td>
+                <td> <button name="link-reset"  num="0">-</button> </td>
+            </tr>
+            <tr>
+                <td> <input type="checkbox" name="link-enabled" num="1" /> </td>
+                <td> <input type="text" name="link-url" num="1" /> </td>
+                <td> <input type="text" name="link-desc" num="1"/> </td>
+                <td> <button name="link-reset" num="1">-</button> </td>
+            </tr>
+            <tr>
+                <td> <input type="checkbox" name="link-enabled" num="2" /> </td>
+                <td> <input type="text" name="link-url" num="2" /> </td>
+                <td> <input type="text" name="link-desc" num="2"/> </td>
+                <td> <button name="link-reset"  num="2">-</button> </td>
+            </tr>
+        </table>
+        <br/>
+        <button id='save-links'>Save</button>
+        <button id='reset-links'>Reset</button>
+    </div>
+    <div>
+        <h2>Settings</h2>
+        <div>
+            <input type="radio" id="random" name="mode" value="random">
+            <label for="random">Random Selection</label><br>
+            <input type="radio" id="sequencial" name="mode" value="increment">
+            <label for="sequencial">Sequencial Selection</label><br>
+        </div>
+        <br/>
+        <button id='save-settings'>Save</button>
+    </div>
+    <div>
+        <h2>Feedback</h2>
+        <p>Write to me flipflopapps@gmail.com (I am Naval Saini).</p>
+        <p>Try out my other app (a chess variation) - <a href="https://halfchess.com">halfchess.com</a></p>
+        <p>Don't forget to tell about this to others.</p>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>

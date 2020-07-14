@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REWQ - swipe shortdut on your keyboard</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <p>Redirecting...</p>
+    <p><strong>Help</strong></p>
+    <p>To Change Settings - <a href="https://rewq.netlify.app/settings">rewq.netlify.app/settings</a></p>
+    <script>
+        var urls = [];
+        var count = parseInt(localStorage.getItem('count') || 0);
+        for (var idx = 0; idx < count; idx++) {
+            var data = localStorage.getItem('row-' + idx);
+            var record = data && JSON.parse(data);
+            if (!record || !record.enabled) {
+                continue;
+            }
+            urls.push(record.url);
+        }
+
+        var urlIdx = 0;
+        var mode = localStorage.getItem("mode") || 'random';
+        if (mode === 'random') {
+            urlIdx = Math.floor(Math.random() * urls.length);
+        } else {
+            urlIdx = parseInt(localStorage.getItem('lastIndex') || '-1');
+            urlIdx = (urlIdx + 1) % urls.length;
+            localStorage.setItem('lastIndex', urlIdx);
+        }
+
+        console.log(urls, urlIdx);
+        if (urls.length === 0) {
+            window.location.pathname = '/settings';
+        } else {
+            window.location.href = urls[urlIdx];
+        }
+    </script>
+</body>
+</html>

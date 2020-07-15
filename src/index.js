@@ -86,19 +86,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadSettings() {
         const mode = localStorage.getItem("mode");
-        if (mode === 'increment') {
-            modeRadio[1].checked = true;
-        } else {
-            modeRadio[0].checked = true;
+        let idx = 0; // list
+        switch(mode) {
+            case 'random':
+                idx = 1;
+                break;
+            case 'increment':
+                idx = 2;
+                break;
         }
+        modeRadio[idx].checked = true;
     }
 
     function onSaveSettings(e) {
-        if (modeRadio[0].checked) {
-            localStorage.setItem('mode', modeRadio[0].value)
-        }
-        if (modeRadio[1].checked) {
-            localStorage.setItem('mode', modeRadio[1].value)
+        for (let i = 0; i < 3; i++) {
+            if (modeRadio[i].checked) {
+                localStorage.setItem('mode', modeRadio[0].value)
+            }
         }
     }
 

@@ -24,21 +24,25 @@
             urls.push(record.url);
         }
 
-        var urlIdx = 0;
+        var destUrl = null;
         var mode = localStorage.getItem("mode") || 'random';
+
         if (mode === 'random') {
-            urlIdx = Math.floor(Math.random() * urls.length);
-        } else {
-            urlIdx = parseInt(localStorage.getItem('lastIndex') || '-1');
-            urlIdx = (urlIdx + 1) % urls.length;
-            localStorage.setItem('lastIndex', urlIdx);
+            var idx = Math.floor(Math.random() * urls.length);
+            destUrl = urls[idx];
+        } else if (mode === 'increment') {
+            idx = parseInt(localStorage.getItem('lastIndex') || '-1');
+            idx = (idx + 1) % urls.length;
+            localStorage.setItem('lastIndex', idx);
+            destUrl = urls[idx];
         }
 
-        console.log(urls, urlIdx);
         if (urls.length === 0) {
             window.location.pathname = '/settings';
+        } else if (destUrl) {
+            window.location.href = destUrl;
         } else {
-            window.location.href = urls[urlIdx];
+            window.location.pathname = '/list';
         }
     </script>
 </body>

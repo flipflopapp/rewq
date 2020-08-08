@@ -1,1 +1,1 @@
-This is a fun half day experiment and hosted on https://rewq.netlify.app/
+This is a fun half day experiment and hosted on https://rewq.app/

@@ -11,39 +11,50 @@
 <body>
     <p>Redirecting...</p>
     <p><strong>Help</strong></p>
-    <p>To Change Settings - <a href="https://rewq.netlify.app/settings">rewq.netlify.app/settings</a></p>
+    <p>To Change Settings - <a href="https://rewq.app/settings">rewq.app/settings</a></p>
     <script>
-        var urls = [];
-        var count = parseInt(localStorage.getItem('count') || 0);
-        for (var idx = 0; idx < count; idx++) {
-            var data = localStorage.getItem('row-' + idx);
-            var record = data && JSON.parse(data);
-            if (!record || !record.enabled) {
-                continue;
+        var enabled = [];
+        
+        function setup() {
+            var count = parseInt(localStorage.getItem('count') || 0);
+            for (var idx = 0; idx < count; idx++) {
+                var data = localStorage.getItem('row-' + idx);
+                var record = data && JSON.parse(data);
+                if (!record || !record.enabled) {
+                    continue;
+                }
+                enabled.push(record);
             }
-            urls.push(record.url);
         }
 
-        var destUrl = null;
-        var mode = localStorage.getItem("mode") || 'random';
+        function redirect() {
+            if (enabled.length === 0) {
+                window.location.pathname = '/settings';
+                return;
+            }
 
-        if (mode === 'random') {
-            var idx = Math.floor(Math.random() * urls.length);
-            destUrl = urls[idx];
-        } else if (mode === 'increment') {
-            idx = parseInt(localStorage.getItem('lastIndex') || '-1');
-            idx = (idx + 1) % urls.length;
-            localStorage.setItem('lastIndex', idx);
-            destUrl = urls[idx];
-        }
+            var destUrl = null;
+            var mode = localStorage.getItem("mode") || 'list';
 
-        if (urls.length === 0) {
-            window.location.pathname = '/settings';
-        } else if (destUrl) {
+            if (mode === 'list') {
+                window.location.pathname = '/list';
+                return;
+            }
+
+            if (mode === 'random') {
+                var idx = Math.floor(Math.random() * urls.length);
+                destUrl = enabled[idx].url;
+            } else if (mode === 'increment') {
+                idx = parseInt(localStorage.getItem('lastIndex') || '-1');
+                idx = (idx + 1) % urls.length;
+                localStorage.setItem('lastIndex', idx);
+                destUrl = enabled[idx].url;        
+            }
             window.location.href = destUrl;
-        } else {
-            window.location.pathname = '/list';
         }
+
+        setup();
+        redirect();
     </script>
 </body>
 </html>

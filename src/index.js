@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function onSaveLinksClick(e) {
         saveData();
+        hideSaveWarning();
     }
 
     function onResetLinksClick(e) {

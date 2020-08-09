@@ -14,25 +14,25 @@
         <p id='links-placeholder' />
     </div>
     <script>
-        var enabled = [];
-        var count = parseInt(localStorage.getItem('count') || 0);
-        for (var idx = 0; idx < count; idx++) {
-            var data = localStorage.getItem('row-' + idx);
-            var record = data && JSON.parse(data);
-            if (!record || !record.enabled) {
-                continue;
-            }
-            enabled.push(record);
+        var data = {};
+        
+        function setup() {
+            const key = window.location.href.split("?")[1];
+            const value = localStorage.getItem(key);
+            data = JSON.parse(value || '{}');
         }
 
-        if (enabled.length === 0) {
-            window.location.pathname = '/settings';
-        } else {
+        function load() {
+            if (data.type !== 'list') {
+                window.location.pathname = '/settings';
+                return;
+            }
+
             var innerHtml = [];
-            enabled.forEach(function(rec, idx) {
-                var title = rec.desc ? (rec.desc + "( " + rec.url + " )") : rec.url;
+            data.urls.forEach(function(rec, idx) {
+                var title = rec.name ? (rec.name + "( " + rec.link + " )") : rec.link;
                 innerHtml.push(
-                    (idx+1) + '. <a href="' + rec.url + '">' + title + "</a><br><br>"
+                    (idx+1) + '. <a href="' + rec.link + '">' + title + "</a><br><br>"
                 );
             });
 
@@ -41,6 +41,9 @@
                linksDiv.innerHTML = innerHtml.join('');
             });
         }
+
+        setup();
+        load();
     </script>
     <br>    
     <h3>Help</h3>

@@ -13,44 +13,44 @@
     <p><strong>Help</strong></p>
     <p>To Change Settings - <a href="https://rewq.app/settings">rewq.app/settings</a></p>
     <script>
-        var enabled = [];
+        var data;
         
         function setup() {
-            var count = parseInt(localStorage.getItem('count') || 0);
-            for (var idx = 0; idx < count; idx++) {
-                var data = localStorage.getItem('row-' + idx);
-                var record = data && JSON.parse(data);
-                if (!record || !record.enabled) {
-                    continue;
-                }
-                enabled.push(record);
-            }
+            // const key = window.location.host.split('.').shift();
+            let key = window.location.href.split("?")[1];
+            const value = localStorage.getItem(key);
+            data = JSON.parse(value || '{}');
         }
 
         function redirect() {
-            if (enabled.length === 0) {
+            if (!data.type) {
                 window.location.pathname = '/settings';
                 return;
             }
 
-            var destUrl = null;
-            var mode = localStorage.getItem("mode") || 'list';
-
-            if (mode === 'list') {
-                window.location.pathname = '/list';
+            if (data.type === 'list') {
+                window.location.pathname = '/list?' + data.shortcut;
                 return;
             }
 
-            if (mode === 'random') {
-                var idx = Math.floor(Math.random() * urls.length);
-                destUrl = enabled[idx].url;
-            } else if (mode === 'increment') {
-                idx = parseInt(localStorage.getItem('lastIndex') || '-1');
-                idx = (idx + 1) % urls.length;
-                localStorage.setItem('lastIndex', idx);
-                destUrl = enabled[idx].url;        
+            if (data.type === 'shortcut') {
+                window.location.href = data.urls[0].link;
+                return;                
             }
-            window.location.href = destUrl;
+
+            if (data.type === 'random') {
+                var idx = Math.floor(Math.random() * urls.length);
+                window.location.href = data.urls[idx].link;
+                return;
+            }
+
+            if (data.type === 'sequence') {
+                var prev = parseInt(localStorage.getItem(key + ' sequence') || '0');
+                var idx = (prev + 1) % data.urls.length;
+                localStorage.setItem(key + ' sequence', idx + 1);
+                window.location.href = data.urls[next].link;
+                return;
+            }
         }
 
         setup();

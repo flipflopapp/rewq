@@ -16,73 +16,47 @@
 <body>
     <div>
         <h2>A novel URL Shortcut Tool</h2>
-        <p>Welcome!! This is REWQ - a very simple idea. It is a <strong>shortcut url</strong> for any longer url.</p>
+        <p>Welcome!! This is REWQ - a very simple idea. It is a <strong>shortcut url</strong> for any longer, frequently visited url.</p>
         <p>R_E_W_Q are top 4 letters on your keyboard and you can kind of swipe to enter them.</p>
-        <p>Whenever, you swipe on your keyboard these 4 letters <strong>'r-e-w-q-TAB'</strong> - we will redirect you to the link from below.</p>
+        <p>Whenever, you swipe on your keyboard these 4 letters <strong>'r-e-w-q-TAB'/NAME</strong> - we will redirect you to the link from below.</p>
     </div>
     <div>
-        <h2>Destination Links</h2>
-        <table>
-            <tr>
-                <th width="80">Enable</th>
-                <th width="320">Destination URL</th>
-                <th>Note</th>
-                <th>Reset</th>
-            </tr>
-            <tr>
-                <td> <input type="checkbox" name="link-enabled" num="0" /> </td>
-                <td> <input type="text" name="link-url" num="0" /> </td>
-                <td> <input type="text" name="link-desc" num="0"/> </td>
-                <td> <button name="link-reset"  num="0">-</button> </td>
-            </tr>
-            <tr>
-                <td> <input type="checkbox" name="link-enabled" num="1" /> </td>
-                <td> <input type="text" name="link-url" num="1" /> </td>
-                <td> <input type="text" name="link-desc" num="1"/> </td>
-                <td> <button name="link-reset" num="1">-</button> </td>
-            </tr>
-            <tr>
-                <td> <input type="checkbox" name="link-enabled" num="2" /> </td>
-                <td> <input type="text" name="link-url" num="2" /> </td>
-                <td> <input type="text" name="link-desc" num="2"/> </td>
-                <td> <button name="link-reset"  num="2">-</button> </td>
-            </tr>
-            <tr>
-                <td> <input type="checkbox" name="link-enabled" num="3" /> </td>
-                <td> <input type="text" name="link-url" num="3" /> </td>
-                <td> <input type="text" name="link-desc" num="3"/> </td>
-                <td> <button name="link-reset"  num="3">-</button> </td>
-            </tr>
-            <tr>
-                <td> <input type="checkbox" name="link-enabled" num="4" /> </td>
-                <td> <input type="text" name="link-url" num="4" /> </td>
-                <td> <input type="text" name="link-desc" num="4"/> </td>
-                <td> <button name="link-reset"  num="4">-</button> </td>
-            </tr>
-        </table>
-        <br/>
-        <button id='save-links' style="font-weight: bold;">Save</button>
-        <button id='reset-links'>Reset</button>
-        <p>You need to save if you change any value above!</p>
-        <p>
-            After saving, reopen the URL
-            <a href="https://rewq.app/">rewq.app</a> (by swiping r_e_w_q)
-            on a new tab to be redirected to your favorite URLs.
-        </p>
+        <h2>Setup your shortcuts here</h2>
+        <textarea 
+        id="shortcuts-text"
+        autofocus wrap="hard" rows="15"
+        style="width: 100%; max-width: 640px; max-height: 480px;">
+# Syntax,
+# 
+# + [NAME] [list | shortcut | random | sequence]
+# Name URL
+# Name URL
+# ...
+#
+# use + for new lists, shortcuts or other accessing ways
+# use - or # for comments
+#
 
++ standup shortcut
+url-here
+- commented-url     
+
++ workout list
+Kettle-Bells url-here
+Exercises url-here
+        </textarea>
+        <p>Always save after editing.</p>
     </div>
     <div>
-        <h2>Settings</h2>
-        <div>
-            <input type="radio" id="random" name="mode" value="list">
-            <label for="random">Show List</label><br>
-            <input type="radio" id="random" name="mode" value="random">
-            <label for="random">Random Selection</label><br>
-            <input type="radio" id="sequencial" name="mode" value="increment">
-            <label for="sequencial">Sequencial Selection</label><br>
-        </div>
-        <br/>
-        <button id='save-settings'>Save</button>
+        <button id='save-links' style="font-weight: bold;">Save (& Install)</button>
+    </div>
+    <div>
+        <button id='reset-links'>Reset</button>
+    </div>
+    <div>
+        <h2>Tips</h2>
+        <p>You need to save if you change any value above.</p>
+        <p>Take a backup in by copying into Notes. Title it `#rewq links`.</p>
     </div>
     <div>
         <h2>Feedback</h2>

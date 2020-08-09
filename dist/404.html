@@ -9,10 +9,18 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <script>
+        const key = window.location.href.replace(/.*rewq.app\//, '');
+        const value = localStorage.getItem(key);
+        if (value !== undefined) {
+            const url = window.location.href.replace(RegExp(key + '$'), '?' + key);
+            window.location.href = url;
+        }
+    </script>
     <p>You have reached an invalid page...</p>
     <br/>
     <p><strong>Help</strong></p>
-    <p>To Use Shortcut - <a href="https://rewq.app">rewq.app/</a></p>
+    <p>To Use Shortcut - rewq.app/NAME</p>
     <p>To Change Settings - <a href="https://rewq.app/settings">rewq.app/settings</a></p>
 </body>
 </html>

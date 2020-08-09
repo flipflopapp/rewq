@@ -1,115 +1,37 @@
+const { parseAndSync, parseAndClean } = require('./parse');
+
+const UNIQUE_KEY = 'asdasdasa1-short-cuttext1232131dasdaasdsada';
+
 document.addEventListener('DOMContentLoaded', () => {
-    let enableCheckboxes;
-    let linkInputs;
-    let descInputs;
-    let modeRadio;
-    let count;
+    let shortcutsText;
 
     function loadEventHandlers() {
-        enableCheckboxes = document.getElementsByName("link-enabled");
-        linkInputs = document.getElementsByName("link-url");
-        descInputs = document.getElementsByName("link-desc");
-        modeRadio = document.getElementsByName("mode");
-        count = enableCheckboxes.length;
-
-        const resetButtons = document.getElementsByName("link-reset");
-        for(let idx = 0; idx < count; idx++) {
-            resetButtons[idx].addEventListener('click', onResetRowClick);
-            linkInputs[idx].addEventListener('blur', onURLChange);
-        }
-
+        shortcutsText = document.getElementById("shortcuts-text");
         document.getElementById("save-links").addEventListener('click', onSaveLinksClick);
         document.getElementById("reset-links").addEventListener('click', onResetLinksClick);
-        document.getElementById("save-settings").addEventListener('click', onSaveSettings);
     }
-
-    function loadData() {
-        for(let idx = 0; idx < count; idx++) {
-            loadRow(idx);
-        }
-    };
-
-    function loadRow(idx) {
-        const value = localStorage.getItem('row-' + idx);
-        const valueObj = value ? JSON.parse(value) : { enabled: false, url: '', desc: '' };
-        enableCheckboxes[idx].checked = valueObj.enabled;
-        linkInputs[idx].value = valueObj.url;
-        descInputs[idx].value = valueObj.desc;
-    }
-
-    function saveData() {
-        for(let idx = 0; idx < count; idx++) {
-            saveRow(idx);
-        }
-        localStorage.setItem('count', count);
-    }
-
-    function saveRow(idx) {
-        const valueObj = {
-            enabled: enableCheckboxes[idx].checked,
-            url: linkInputs[idx].value,
-            desc: descInputs[idx].value
-        };
-        localStorage.setItem('row-' + idx, JSON.stringify(valueObj));
-    }
-
-    function getRowNum(e) {
-        return e.target.getAttribute('num');
-    }
-
-    function onResetRowClick(e) {
-        const idx = getRowNum(e);
-        enableCheckboxes[idx].checked = false;
-        linkInputs[idx].value = '';
-        descInputs[idx].value = '';
-    };
 
     function onSaveLinksClick(e) {
-        saveData();
-        hideSaveWarning();
+        const txt = shortcutsText.value;
+        localStorage.setItem(UNIQUE_KEY, txt);
+        parseAndSync(txt);
     }
 
     function onResetLinksClick(e) {
-        for(let idx = 0; idx < count; idx++) {
-            localStorage.setItem('row-' + idx, undefined);
-        }
-        loadData();
+        const txt = shortcutsText.value;
+        parseAndClean(txt);
+        localStorage.setItem(UNIQUE_KEY, '');
     }
 
-    function onURLChange(e) {
-        const row = getRowNum(e);
-        if (e.target.value) {
-            enableCheckboxes[row].checked = true;
-        } else {
-            enableCheckboxes[row].checked = false;
-        }
-    }
-
-    function loadSettings() {
-        const mode = localStorage.getItem("mode");
-        let idx = 0; // list
-        switch(mode) {
-            case 'random':
-                idx = 1;
-                break;
-            case 'increment':
-                idx = 2;
-                break;
-        }
-        modeRadio[idx].checked = true;
-    }
-
-    function onSaveSettings(e) {
-        for (let i = 0; i < 3; i++) {
-            if (modeRadio[i].checked) {
-                localStorage.setItem('mode', modeRadio[0].value)
-            }
+    function loadData() {
+        const txt = localStorage.getItem(UNIQUE_KEY).trim();
+        if (txt.length > 0) {
+            shortcutsText.value = txt;
         }
     }
 
     loadEventHandlers();
     loadData();
-    loadSettings();
 });
 
 /**

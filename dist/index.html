@@ -45,10 +45,11 @@
             }
 
             if (data.type === 'sequence') {
-                var prev = parseInt(localStorage.getItem(key + ' sequence') || '0');
+                const key = data.shortcut + ' sequence';
+                var prev = parseInt(localStorage.getItem(key) || '0');
                 var idx = (prev + 1) % data.urls.length;
                 localStorage.setItem(key + ' sequence', idx + 1);
-                window.location.href = data.urls[next].link;
+                window.location.href = data.urls[idx].link;
                 return;
             }
         }

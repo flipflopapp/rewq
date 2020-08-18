@@ -26,32 +26,28 @@
         id="shortcuts-text"
         autofocus wrap="hard" rows="15"
         style="width: 100%; max-width: 640px; max-height: 480px;">
-# Syntax,
-# 
-# + [NAME] [list | shortcut | random | sequence]
-# Name URL
-# Name URL
-# ...
-#
-# use + for new lists, shortcuts or other accessing ways
-# use - or # for comments
-#
+# do you need some shortcut ideas (also see Help section in end)
 
 + standup shortcut
-url-here
-- commented-url     
+- add 1 url below
 
 + workout list
-Kettle-Bells url-here
-Exercises url-here
-        </textarea>
+- add urls list below
+
++ meditation sequence
+- add urls list below (it will open them one-by-one on every visit)
+
++ songs random
+- add urls here (it will open them randomly)
+
++ notebooks list
+
++ repos list
+    </textarea>
         <p>Always save after editing.</p>
     </div>
     <div>
         <button id='save-links' style="font-weight: bold;">Save (& Install)</button>
-    </div>
-    <div>
-        <button id='reset-links'>Reset</button>
     </div>
     <div>
         <h2>Tips</h2>
@@ -59,10 +55,69 @@ Exercises url-here
         <p>Take a backup in by copying into Notes. Title it `#rewq links`.</p>
     </div>
     <div>
+        <h2>Use from CLI</h2>
+        <p>Add below to your bash profile.<br></p>
+        <p><strong>rewq() { open https://rewq.app?$1; }</strong><br></p>
+        <p>Now, <strong>rewq standup</strong> (for example) will open standup link in browser.</p>
+    </div>
+    <div>
         <h2>Feedback</h2>
         <p>Write to me flipflopapps@gmail.com (I am Naval Saini).</p>
         <p>Try out my other app (a chess variation) - <a href="https://halfchess.com">halfchess.com</a></p>
         <p>Don't forget to tell about this to others.</p>
+    </div>
+    <div>
+        <h2>Syntax</h2>
+<p>
++ [Shortcut Name] [list | shortcut | random | sequence] <br>
+[Optional URL Name] [URL] <br>
+[Optional URL Name] [URL] <br>
+</p>
+<p>
++ for new lists, shortcuts or other accessing ways <br>
+- or # for comments <br>
+Url name or Shortcut name should not have spaces. <br>
+</p>
+<h2>Example (My config)</h2>
+<p>
+# rewq links <br>
+<br>
++ standup shortcut <br>
+<br>
+https://meet.google.com/abc-abc-abc <br>
+<br>
++ workouts list<br>
+<br>
+Kettle-Bells https://www.youtube.com/watch?v=r6qHV7jnJEE&list=PLoy7IsGb6mC1x05KfrmpfsdMlff_fDtQd
+<br>
+Dip-Station https://www.youtube.com/watch?v=W8jXc1zaLuQ&list=PLoy7IsGb6mC2_fgATd8TV3uQayi9-qsML
+<br>
+Exercises https://www.youtube.com/watch?v=cuLwdV_yXpk&list=PLoy7IsGb6mC0TJbFGcTvHWaiOUu7b3Ill
+<br>
++ flute list<br>
+<br>
+https://www.youtube.com/watch?v=AYlriSH28Og<br>
+
+https://www.youtube.com/watch?v=y8FNGwoZ5P0<br>
+<br>
++ rewq shortcut<br>
+
+https://app.netlify.com/sites/rewq/<br>
+</p>
+    </div>
+    <div>
+        <h2>Results</h2>
+        <p>
+            Saving above creates following shortcuts on browser URL.<br><br>
+            <a href="https://rewq.app/standup">rewq.app/standup</a> <br>
+            <a href="https://rewq.app/flute">rewq.app/flute</a> <br>
+            <a href="https://rewq.app/workouts">rewq.app/workouts</a> <br>
+            <a href="https://rewq.app/rewq">rewq.app/rewq</a> <br>
+        </p>
+    </div>
+    <div>
+        <h2>Settings</h2>
+        <button id='reset-links'>Factory Reset</button>
     </div>
     <script src="./main.js"></script>
 </body>

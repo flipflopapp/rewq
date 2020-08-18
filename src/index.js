@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function onResetLinksClick(e) {
-        const txt = shortcutsText.value;
-        parseAndClean(txt);
-        localStorage.setItem(UNIQUE_KEY, '');
+        localStorage.clear();
+        window.location.reload();
     }
 
     function loadData() {

@@ -23,14 +23,14 @@
         }
 
         function load() {
-            if (data.type !== 'list') {
+            if (!data.type) {
                 window.location.pathname = '/settings';
                 return;
             }
 
             var innerHtml = [];
             data.urls.forEach(function(rec, idx) {
-                var title = rec.name ? (rec.name + "( " + rec.link + " )") : rec.link;
+                var title = rec.name || rec.link;
                 innerHtml.push(
                     (idx+1) + '. <a href="' + rec.link + '">' + title + "</a><br><br>"
                 );

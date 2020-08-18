@@ -1,9 +1,5 @@
 
-export function parseAndClean(text) {
-  parseAndSync(text, false);
-}
-
-export function parseAndSync(text, uninstall = false) {
+export function parseAndSync(text) {
   let shortcut = '';
   let type = '';
   let urls = [];
@@ -44,15 +40,11 @@ export function parseAndSync(text, uninstall = false) {
       return;
     }
 
-    if (uninstall) {
-      localStorage.setItem(shortcut, undefined);
-    } else {
-      const shortcutData = JSON.stringify({
-        type,
-        urls
-      });
-      localStorage.setItem(shortcut, shortcutData);
-    }
+    const shortcutData = JSON.stringify({
+      type,
+      urls
+    });
+    localStorage.setItem(shortcut, shortcutData);
 
     urls = [];
   }

@@ -37,7 +37,7 @@ function parse(text) {
       // add list item
       const parts = partsOfLineInReverse(line.substr(1));
       const link = parts.shift();
-      if (parts.length === 1) {
+      if (parts.length === 0) {
         urls.push({ link });
       } else {
         const name = parts.reverse().join(' ');

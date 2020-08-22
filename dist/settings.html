@@ -4,11 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>TextPad</title>
-	<meta name="title" content="TextPad">
+	<title>REWQ</title>
+	<meta name="title" content="REWQ">
 	<meta name="description" content="A simple online notepad, no WYSIWYG, no fancy stuff, just write. The text will live in your browser until you decide to delete or download it.">
 	<meta name="author" content="Paulo Nunes - syndicatefx.com">
-	<link href="main.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="main.css" rel="stylesheet">
 </head>
 <body>
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -28,7 +30,7 @@
 
 <header role="banner">
     <span style="position: fixed;">
-        &nbsp;save time with REWQ
+        &nbsp;TIP: tap blue button
     </span>
 	<nav>
 		<div class="btn-group">
@@ -53,39 +55,58 @@
 <div id="homepage" class="overlay" role="main">
 	<section>
 		<svg><use xlink:href="#logo"></use></svg>
-        <h1>Make shortcuts for links</h1>
-        <p>REWQ is a <strong>shortcut url</strong> for any longer, frequently visited url.</p>
-        <h2>Syntax</h2>
-        <p><a href="syntax.html">Click here</a> to learn how to use from command-line, make lists, open lists sequencially or randomly, etc.</p>
-        <h2>Feedback</h2>
-        <p>Write to me flipflopapps@gmail.com (Naval Saini).</p>
-        <p>Try out my other app <a href="https://halfchess.com">halfchess.com</a> (a chess variation).</p>
+        <h1>MAN Pages</h1>
+        <p>Brief: Shortcuts are saved locally in your browser.</p>
+        <p>
+            - create a shortcut <br/><br/>
+            [Shortcut-Word] -> [Web-Link]
+        </p>
+        <p>
+            - create a list <br/><br/>
+            [List-Name] -> list <br/>
+            * Optional Title -> [Web-Link] <br/>
+            * https://web-link-2 <br/>
+            * https://web-link-3<br/>
+        </p>
+        <p>
+            <a href="syntax.html">Click here</a> for more details on using from
+            command-line, open lists sequentially or randomly, etc.
+        </p>
+
 		<button id="start">Start</button>
 	</section>
 </div>
 
 <textarea id="content" spellcheck="false">
+# Do you put any links in notes (instead of bookmarks) ?
+-     You are not alone, I made this tool for you and me.
+-     Rewq.app is a easy way to access URLs using browser-bar or command-line.
+
+# Try it out
+-     click [blue button] to install sample links
+-     type in url bar  ->  rewq.app/meditate
+
 - My work links
 standup -> https://meet.google.com/abc-abc-abc
 heroku -> https://dashboard.heroku.com/teams/my-org/apps
 jupyter -> https://console.google.com/some-very-long-link
 
 - A 5 minute meditation
-meditate -> https://https://www.youtube.com/watch?v=inpok4MKVLM
+meditate -> https://www.youtube.com/watch?v=inpok4MKVLM
 
 - Browser tools
 notes -> http://textpad.surge.sh/
 
-- More in Help (below)
-- Make playlists
-- Quickly add new links without copy-paste
+- Add your own links (don't forget -> [blue button])
+-     Read more in help ⓘ
 </textarea>
 
 <footer role="contentinfo">
 	<button id="info" class="info-btn" title="Info"><svg><use xlink:href="#icon-info-outline"></use></svg></button>
-	<button id="apply" class="apply-btn" title="Save">Update shortcuts</button>
+	<button id="apply" class="apply-btn active" title="Save">Install shortcuts</button>
 </footer>
 
+<script src="smoke.min.js"></script>
 <script src="main.js"></script>
 
 </body>

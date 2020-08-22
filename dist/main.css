@@ -382,7 +382,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  max-width: 45ch;
+  max-width: 48ch;
   height: 30em;
   text-align: center;
   padding: 1em;
@@ -450,10 +450,11 @@ footer {
 
 .apply-btn {
   position: absolute;
-  bottom: 10px;
+  bottom: 16px;
   right: 40px;
   padding: 10px 40px;
   background-color: rgba(176,176,176,.9);
+  color: black;
 }
 
 .apply-btn.active {
@@ -461,7 +462,7 @@ footer {
 }
 
 .apply-btn:hover {
-  background-color: #61cce0;
+  box-shadow: 0 17px 50px 0 rgba(0,0,0,0.19), 0 12px 16px 0 rgba(0,0,0,0.24);
 }
 
 /*---

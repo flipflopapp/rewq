@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REWQ - swipe shortcut on your keyboard</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="main.css" rel="stylesheet">
+    <style>
+        body {
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-decoration-style: underline;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>A novel URL Shortcut Tool</h2>
+        <p>REWQ creates <strong>shortcut urls</strong> for any longer, frequently visited url.</p>
+        <p>R_E_W_Q are top 4 letters on your keyboard and you can kind of swipe to enter them.</p>
+        <p>Whenever, you swipe on your keyboard these 4 letters <strong>'r-e-w-q-TAB'/NAME</strong> - we will redirect you to the link from below.</p>
+    </div>
+    <div>
+        <h2>CLI Usage</h2>
+        <p>Add below to your bash profile.<br></p>
+        <p><strong>rewq() { open https://rewq.app?$1; }</strong><br></p>
+        <p>Now, <strong>rewq standup</strong> (for example) will open standup link in browser.</p>
+    </div>
+    <div>
+        <h2>Syntax</h2>
+        <h3>Shortcuts</h3>
+        <p>[Shortcut-Word] -> [Link]</p>
+        <h3>Comments</h3>
+        <p>Place a - or # in front of line</p>
+        <h3>Lists</h3>
+        <p>[List-Name] -> list</p>
+        <p>* Optional Title -> Link1</p>
+        <p>* Link2</p>
+        <p>* Link3</p>
+        <h3>Sequencial or Random Lists</h3>
+        <p>[List-Name] [sequence | random]</p>
+        <p>* Optional Title -> Link1</p>
+        <p>* Link2</p>
+        <p>* Link3</p>
+    </div>
+    <div>
+        <h2>Tips</h2>
+        <p>Taking a backup - download a backup to ~/.rewq file from UI.</p>
+        <br><br>
+        <a href="https://rewq.app/settings">Go back to settings</a>
+        <br>
+        <br>
+    </div>
+</body>
+</html>

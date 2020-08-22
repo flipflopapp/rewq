@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       lw      = document.getElementById("lw"),
       theme   = document.getElementById("theme"),
       info    = document.getElementById("info"),
-      apply   = document.getElementById("apply")
+      apply   = document.getElementById("apply"),
+      chrome   = document.getElementById("chrome")
       ;
 
   /*-------------------------------------
@@ -197,5 +198,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     apply.classList.remove("active");
     content.focus();
   }
+
+  /* Chrome */
+
+  chrome.addEventListener("click", function() {
+    smoke.alert("Coming soon (in review). \nIt opens a shortcut by typing `rewq SHORTNAME` in browser bar.")
+  });
 
 });

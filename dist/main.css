@@ -193,6 +193,10 @@ nav input {
   fill: #a0d92e;
 }
 
+.chrome-btn:hover svg {
+  fill: #cbbd2a;
+}
+
 .clear-btn:hover svg {
   fill: #f92652;
 }

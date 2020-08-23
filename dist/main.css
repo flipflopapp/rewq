@@ -193,6 +193,11 @@ nav input {
   fill: #a0d92e;
 }
 
+.chrome-btn > svg {
+  padding-top: 1px;
+  padding-bottom: 3px;
+}
+
 .chrome-btn:hover svg {
   fill: #cbbd2a;
 }

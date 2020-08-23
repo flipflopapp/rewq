@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   /* Chrome */
 
   chrome.addEventListener("click", function() {
-    smoke.alert("Coming soon (in review). \nIt opens a shortcut by typing `rewq SHORTNAME` in browser bar.")
+    smoke.alert("Coming soon (in review). \nIt opens a shortcut by typing `rewq&lt;TAB&gt;SHORTNAME` in browser bar.")
   });
 
 });

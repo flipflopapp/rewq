@@ -25,10 +25,11 @@ function parse(text) {
   let urls = [];
   const lines = text.split('\n');
 
-  lines.forEach(line => {
+  lines.forEach(rawLine => {
+    const line = rawLine.trim();
     const action = line[0];
 
-    if (action === '-' || action === '#' || line.trim().length === 0) {
+    if (action === '-' || action === '#' || action === undefined) {
       // comment - contine
       return;
     }

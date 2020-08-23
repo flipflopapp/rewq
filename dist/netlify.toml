@@ -1,0 +1,7 @@
+[[headers]]
+  for = "/"
+  [headers.values]
+    cache-control = '''
+      max-age=604800,
+      public,
+      stale-while-revalidate=5'''

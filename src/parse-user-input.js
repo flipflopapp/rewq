@@ -10,6 +10,14 @@ function isUrl(url) {
   return URL_REGEX.test(url);
 }
 
+function toUrl(url) {
+  if (!url.match(/^[a-zA-Z]+:\/\//))
+  {
+      url = 'https://' + url;
+  }
+  return url;
+}
+
 function partsOfLineInReverse(line) {
   const parts = line.split(' ')
     .map(str => str.trim())
@@ -37,7 +45,7 @@ function parse(text) {
     if (action === '*' && isList(type)) {
       // add list item
       const parts = partsOfLineInReverse(line.substr(1));
-      const link = parts.shift();
+      const link = toUrl(parts.shift());
       if (parts.length === 0) {
         urls.push({ link });
       } else {

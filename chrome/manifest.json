@@ -4,7 +4,9 @@
   "description": "Humanized shortcuts for long URLs",
   "manifest_version": 2,
   "icons": {
-    "48": "rocket.svg"
+    "16": "logo/rocket-16.png",
+    "32": "logo/rocket-32.png",
+    "48": "logo/rocket-48.png"
   },
   "omnibox": { "keyword" : "rewq" },
   "background": {

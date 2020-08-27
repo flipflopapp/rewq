@@ -15,6 +15,7 @@ Below are the ideas for improving the app. All ideas are for chrome-extension, u
 ### Open all links in a list (& other improvements)
 
 Priority: ★★★ [p1]
+
 Place: web
 
 - Add an open all button to a list page.
@@ -26,6 +27,7 @@ Other possible improvements to the page,
 ### Perform regex on page
 
 Priority: ★★★ [p1]
+
 Place: chrome-extension
 
 Enabled as soon as user enters,
@@ -71,11 +73,16 @@ This screen has following options,
 * Open with readablity library
 
 
+### Show all shortcuts and links
+
+```
+rewq<T>list
+```
+
 
 ### Save links on server
 
 Priority: ★
-
 
 Save links on server
 

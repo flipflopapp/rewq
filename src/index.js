@@ -13,10 +13,7 @@ var saveAs=saveAs||function(r){"use strict";if("undefined"==typeof navigator||!/
 
 const { parseAndSave } = require('./parse-user-input');
 
-/*--------------------------------------
- *  Let's build this puppy!
- *  Bare with me, i'm not a Javascript guru.
- *-------------------------------------*/
+const CHROME_EXTN = 'https://chrome.google.com/webstore/detail/rewq/phoeccilgaakfgmnpjhhpmkcfglihmfg';
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -202,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   /* Chrome */
 
   chrome.addEventListener("click", function() {
-    smoke.alert("Coming soon (in review). \nIt opens a shortcut by typing `rewq&lt;TAB&gt;SHORTNAME` in browser bar.")
+    window.open(CHROME_EXTN, '_blank');
   });
 
 });

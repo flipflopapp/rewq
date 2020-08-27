@@ -11,6 +11,13 @@ Below are the ideas for improving the app. All ideas are for chrome-extension, u
 
 ## Improve workflow
 
+### Fuzzy search in link opening
+
+- Perform a fuzzy search of all shortcuts
+- 1. Open an exact match
+- 2. Open a close match
+- 3. Show all possible matching options in /unsure
+
 
 ### Open all links in a list (& other improvements)
 

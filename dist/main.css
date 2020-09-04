@@ -92,6 +92,7 @@ textarea {
   padding-left: 1em;
   padding-right: 1em;
   padding-bottom: 2.5em;
+  white-space: pre;
 }
 
 @media(min-width:48em){
